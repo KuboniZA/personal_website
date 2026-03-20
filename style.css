@@ -47,8 +47,8 @@ header {
         margin: 0px;
         pad:0px;
     }
-    /* .masked-landing {
-        height: 100vh;
+    .masked-landing {
+        height: 100dvh;
         width: 100%;
         grid-row: 1 / 2;
         grid-column: 1 / 2;
@@ -62,7 +62,8 @@ header {
         mask-size: cover;
         transform: rotate(180deg);
         z-index: 5;
-    } */
+        position: absolute;
+    }
     .home-container {
         text-align: center;
         overflow: hidden;
@@ -77,18 +78,19 @@ header {
         position: absolute;
         height: 80%;
         width: 80%;
-        top: -10%;
+        top: -15%;
         left: 10%;
         transform-style: preserve-3d;
         transform: perspective(1000px);
-        animation: runCarousel 40s linear infinite;
+        animation: runCarousel 30s linear infinite;
     }
      @keyframes runCarousel {
-        from {
-            transform: perspective(1000px) rotateY(0deg);
-    }
-        to {
-            transform: perspective(1000px) rotateY(360deg);
+        0% {
+            transform: perspective(1000px) rotateX(-20deg) rotateY(0deg);
+        }
+          
+        100% {
+            transform: perspective(1000px) rotateX(-20deg) rotateY(360deg);
         }       
     }
     .home-pics {
@@ -100,6 +102,7 @@ header {
         transform: 
             rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) *1deg))
             translateZ(550px);
+        
     }
     .home-pics img {
         width: 100%;
@@ -123,6 +126,7 @@ header {
         max-width: 750px;
         bottom: 0px;
     }
+    
     .content {
         position: absolute;
         bottom: 0px;
