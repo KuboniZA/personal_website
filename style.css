@@ -30,10 +30,10 @@ header {
     left: 0px;
     z-index: 1000;
 }
-    h1 {
-    position: relative;
-    left: 1%;
-    }
+h1 {
+position: relative;
+left: 1%;
+}
 
 /* ****************************** Landing page CSS ******************************* */
 
@@ -47,7 +47,7 @@ header {
         margin: 0px;
         pad:0px;
     }
-    .masked-landing {
+    /* .masked-landing {
         height: 100dvh;
         width: 100%;
         grid-row: 1 / 2;
@@ -63,7 +63,7 @@ header {
         transform: rotate(180deg);
         z-index: 5;
         position: absolute;
-    }
+    } */
     .home-container {
         text-align: center;
         overflow: hidden;
@@ -112,13 +112,15 @@ header {
     }
 
     .home-container .home-pic-container .home-pics img {
-        object-fit: cover;
+        /* object-fit: cover; */
         box-shadow: 0px 0px 10px black;
         opacity: 0.85;
     }
     .home-container .main-me {
         position: relative;
         top: 20vh;
+        left: 50%;
+        transform: translateX(-50%)
     }
     .home-container .main-me img {
         position: relative;
@@ -129,7 +131,7 @@ header {
     
     .content {
         position: absolute;
-        bottom: 0px;
+        bottom: -8%;
         left: 50%;
         transform: translateX(-50%);
         width: 100vw;
@@ -145,7 +147,7 @@ header {
     }
     .content h1 {
         font-family: "Stack Sans Notch", sans-serif;
-        font-size: 6em;
+        font-size: 6rem;
         list-style: 1em;
         color: black;
         text-align: center;
@@ -190,6 +192,115 @@ header {
         text-shadow: 1px 1px white;
     } */
 
-        /* ********************************** About Page CSS ************************* */
 
-       
+
+@media screen and (min-width: 900px) and (max-width: 1024px) {
+    .home-pics {
+        transform: 
+            rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) *1deg))
+            translateZ(600px);
+    }
+    .home-pics img {
+        transform: scale(0.4);
+        border: none;
+    }
+    .home-container .home-pic-container .home-pics img {
+        object-fit: contain;
+        box-shadow: none;
+        opacity: 0.85;
+    }
+
+}
+
+@media screen and (min-width: 700px) and (max-width: 899px) {
+    .home-pics {
+        transform: 
+            rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) *1deg))
+            translateZ(550px);
+    }
+    .home-pics img {
+        transform: scale(0.4);
+        border: none;
+        object-fit: contain;
+    }
+    .home-container .home-pic-container .home-pics img {
+        object-fit: contain;
+        box-shadow: none;
+        opacity: 0.85;
+    }
+    .content h1 {
+        font-size: 4.5rem;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 699px) {
+    .home-pics {
+        transform: 
+            rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) *1deg))
+            translateZ(420px);
+    }
+    .home-pics img {
+        transform: scale(0.4);
+        border: none;
+        object-fit: contain;
+    }
+    .home-container .home-pic-container .home-pics img {
+        object-fit: contain;
+        box-shadow: none;
+        opacity: 0.85;
+    }
+    .content h1 {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width: 350px) and (max-width: 499px) {
+    .home-pics {
+        top:5%;
+        transform: 
+            rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) *1deg))
+            translateZ(420px);
+    }
+    .home-pics img {
+        transform: scale(0.5);
+        border: none;
+        object-fit: contain;
+    }
+    .home-container .home-pic-container .home-pics img {
+        object-fit: contain;
+        box-shadow: none;
+        opacity: 0.85;
+    }
+    .content h1 {
+        font-size: 2.5rem;
+    }
+      .home-container .main-me {
+        transform: translateX(-58%);
+    }
+}
+
+@media screen and (max-width: 349px) {
+    .home-pics {
+        top: 25%;
+        transform: 
+            rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) *1deg))
+            translateZ(350px);
+    }
+    .home-pics img {
+        transform: scale(0.75);
+        border: none;
+        object-fit: contain;
+    }
+    .home-container .home-pic-container .home-pics img {
+        object-fit: contain;
+        box-shadow: none;
+        opacity: 0.85;
+    }
+    .content h1 {
+        font-size: 2rem;
+    }
+      .home-container .main-me {
+        transform: translateX(-65%) scale(0.8);
+        top: 30dvh;
+    }
+}
