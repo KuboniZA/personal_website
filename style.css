@@ -562,18 +562,67 @@ left: 1%;
 }
 
 .main-md-text-container {
-    display: flex;
-    align-items: center;
+    display: grid;
     justify-content: center;
-    font-size: clamp(10px, 20vw, 60px);
+    font-size: clamp(5px, 15vw, 30px);
     grid-column: 1;
     grid-row: 2;
 }
 .main-dev-text-container {
-    display: flex;
-    align-items: center;
+    display: grid;
     justify-content: center;
-    font-size: clamp(10px, 20vw, 60px);
+    font-size: clamp(5px, 15vw, 30px);
     grid-column: 2;
     grid-row: 3;
+}
+.skill-title {
+    font-size: clamp(5px, 15vw, 40px);
+    white-space: no-wrap;
+    justify-self: center;
+    grid-row: 1;
+    margin: 0;
+    height: fit-content;
+    margin-top: clamp(10px, 5vh, 20px)
+}
+.work-skills {
+    height: fit-content;
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+}
+.music-skill1 {
+    grid-row: 1;
+}
+.music-skill2 {
+    grid-row: 2;
+}
+.music-skill3 {
+    grid-row: 3;
+}
+.music-skill4 {
+    grid-row: 4;
+}
+.music-skill5 {
+    grid-row: 5;
+}
+.music-skill6 {
+    grid-row: 6;
+}
+.dev-skills {
+    height: fit-content;
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+}
+.dev-skill1 {
+    grid-row: 1;
+}
+.dev-skill2 {
+    grid-row: 2;
+}
+.dev-skill3 {
+    grid-row: 3;
+}
+.dev-skill4 {
+    grid-row: 4;
 }
