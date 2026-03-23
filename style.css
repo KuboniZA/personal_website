@@ -310,14 +310,64 @@ left: 1%;
 
 .main-skills-containers {
     margin: clamp(5px, 5vw, 20px);
-    transition: transform 5s ease-in;
     
     /* border-radius: 25px;
     box-shadow: inset 2px 2px 0 0 rgba(0, 0, 0, 0.4) */
 }
-.main-skills-containers:hover .nb-tools {
-    color: purple;
-
+.nb-tools {
+    animation: colourChange 10s linear infinite;
+    transition: transform 0.25s ease-out;
+}
+.tool1 {
+    animation-delay: 0.75s;
+}
+.tool2 {
+    animation-delay: 1.5s;
+}
+.tool3 {
+    animation-delay: 2.25s;
+}
+.tool4 {
+    animation-delay: 3s;
+}
+.tool5 {
+    animation-delay: 3.75s;
+}
+.tool6 {
+    animation-delay: 4.5s;
+}
+.tool7 {
+    animation-delay: 5.25s;
+}
+.tool8 {
+    animation-delay: 6s;
+}
+.tool9 {
+    animation-delay: 6.75s;
+}
+.tool10 {
+    animation-delay: 7.5s;
+}
+.tool11 {
+    animation-delay: 8.25s;
+}
+.tool12 {
+    animation-delay: 9s;
+}
+.tool13 {
+    animation-delay: 9.25s;
+}
+@keyframes colourChange {
+    0% {
+        color: black;
+    }
+    10% {
+        color: red;
+        font-weight: 700;
+    }
+    100% {
+        color: black;
+    }
 }
 
 .main-md-img-container {
@@ -356,11 +406,11 @@ left: 1%;
 }
 
 .md-carousal .md-slide-containers {
-    animation: scrollImages 10s linear infinite;
+    animation: scrollImages 40s linear infinite;
 }
 
 .md-carousal .md-slide-containersB {
-    animation: scrollBackImages 10s linear infinite;
+    animation: scrollBackImages 40s linear infinite;
 }
 
 @keyframes scrollImages {
@@ -368,15 +418,15 @@ left: 1%;
         transform: translateX(0%);
     }
     100% {
-        transform: translateX(-200%); /* Move half the width of the duplicated content */
+        transform: translateX(-600%); /* Move half the width of the duplicated content */
     }
 }
 @keyframes scrollBackImages {
     0% {
-        transform: translateX(-200%);
+        transform: translateX(-700%);
     }
     100% {
-        transform: translateX(0%); /* Move half the width of the duplicated content */
+        transform: translateX(-100%); /* Move half the width of the duplicated content */
     }
 }
 
@@ -386,21 +436,24 @@ left: 1%;
 .md-slide-containers {
     perspective: 1000px;
 }
-.md-slides {
+.md-slides, .md-slides2 {
     width: 100%;
     height: 100%;
     position: relative;
     margin-bottom: clamp(0.25rem, 1rem, 2rem);
-    transition: transform 0.5s ease-in;
+    transition: transform 0.75s ease-in;
     transforme-style: preserve-3d;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
-.md-slidesB {
+.md-slidesB, .md-slidesB2 {
     position: absolute;
     inset: 0;
-    transition: transform 0.5s ease-in;
+    transition: transform 0.75s ease-in;
     transforme-style: preserve3d;
+    /* transform: rotateY(180deg); */
+    /* backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; */
 }
 
 .md-slides:hover {
@@ -507,9 +560,7 @@ left: 1%;
 .dev-skill4 {
     grid-row: 4;
 }
-.nb-tools {
-    font-weight: 400;
-}
+
 
 /* *************************************************** MEDIA QUEIRES ************************************************* */
 
