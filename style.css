@@ -518,10 +518,12 @@ left: 1%;
     
 }
 
-.md-carousal .md-slide-containers {
-    scroll-snap-align: center; /* align images to the center when scrolling. Made mandatory by scroll-snap-type:
-                                mandatory. in .md-carousal. */
-    animation: scrollImages 5s linear infinite;
+.md-carousal .md-slide-containers, .md-carousal .md-slide-containersB {
+    animation: scrollImages 10s linear infinite;
+}
+
+.md-carousal .md-slide-containersB {
+    animation-direction: reverse;
 }
 
 @keyframes scrollImages {
@@ -533,40 +535,108 @@ left: 1%;
     }
 }
 
-.md-carousal .md-slide-containersB {
-    scroll-snap-align: center; /* align images to the center when scrolling. Made mandatory by scroll-snap-type:
-                                mandatory. in .md-carousal. */
-    animation: scrollImagesBottomLeft 5s linear infinite;
-}
-
-@keyframes scrollImagesBottomLeft {
-    0% {
-        transform: translateX(-50%);
-    }
-    100% {
-        transform: translateX(0%); /* Move half the width of the duplicated content */
-    }
-}
-
 .md-carousal::-webkit-scrollbar {
     display: none; /* Remove scrollbar at the bottom */
+}
+.md-slide-containers {
+    perspective: 1000px;
 }
 .md-slides {
     width: 100%;
     height: 100%;
     position: relative;
     margin-bottom: clamp(0.25rem, 1rem, 2rem);
-    transition: transform 0.2s ease-in;
-    
-    /* object-fit: contain; */
-    /* border: 1px solid pink; */
+    transition: transform 0.5s ease-in;
+    transforme-style: preserve3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    animation: flipImages 8s linear infinite;
+}
+.md-slidesB {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.5s ease-in;
+    transforme-style: preserve3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    animation: flipBackImages 8s linear infinite;
 }
 .md-slides:hover {
     cursor: pointer;
     transform: scale(1.05);
+    
 }
 
-.md-imgs {
+
+@keyframes flipImages {
+    0% {
+        transform: rotateY(0deg);
+    }
+    25% {
+        transform: rotateY(180deg);
+    }
+    25.1% {
+        transform: rotateY(180deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+        
+    }
+}
+@keyframes flipBackImages {
+    0% {
+        transform: rotateY(180deg);
+        /* backface-visibility: visible;
+        -webkit-backface-visibility: visible; */
+    }
+    25% {
+        transform: rotateY(360deg);
+        /* backface-visibility: hidden;
+        -webkit-backface-visibility: hidden; */
+    }
+    25.1% {
+        transform: rotateY(360deg);
+        /* backface-visibility: hidden;
+        -webkit-backface-visibility: hidden; */
+    }
+
+    100% {
+        transform: rotateY(180deg);
+        /* backface-visibility: visible;
+        -webkit-backface-visibility: visible; */
+        
+    }
+}
+/* .slide1 {
+    animation-delay: 0s;
+}
+.slide2 {
+    animation-delay: 2s;
+}
+.slide3 {
+    animation-delay: 4s;
+}
+.slide4 {
+    animation-delay: 6s;
+}
+.slide5 {
+    animation-delay: 1s;
+}
+.slide6 {
+    animation-delay: 3s;
+}
+.slide7 {
+    animation-delay: 5s;
+}
+.slide8 {
+    animation-delay: 7s;
+} */
+.md-carousal:hover .md-slide-containers, .md-carousal:hover .md-slide-containersB { /* Pause animation and flip card on hover */
+    /* animation-play-state: paused; */
+}
+
+.md-imgs {s
     position: relative;
     width: clamp(10rem, 25vw, 40rem);
     height: clamp(5rem, 15vw, 25rem);
@@ -581,7 +651,7 @@ left: 1%;
         );
 }
 
-.md-slide1::after, .md-slide2::after, .md-slide3::after, .md-slide4::after, .md-slides-flipped::after {
+.md-slide1::after, .md-slide2::after, .md-slide3::after, .md-slide4::after {
     content: "";
     background-color: transparent;
     background: black;
