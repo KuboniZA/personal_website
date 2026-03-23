@@ -232,6 +232,287 @@ left: 1%;
         }
     }
 
+/* ********************** SECTION 2: SKILLS OVERVIEW ************************ */
+
+.section2-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 7dvh 1fr 1fr 7dvh;
+    overflow: hidden;
+}
+
+.skills-top-banner {
+    display: flex;
+    width: 100%;
+    min-height: 7dvh;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    background: black;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    pad:0px;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+.skills-bottom-banner {
+    grid-column: 1 / span 2;
+    grid-row: 4;
+}
+/* .projects-grid {
+    display: grid;
+    grid-template-columns: 40vw 40vw;
+    grid-template-rows: 40vh 40vh;
+    width: 100%;
+    min-height: 93vh;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    pad:0px;
+} */
+.skills-top {
+    color: white;
+    font-weight: 250;
+    font-style: light;
+    display: inline-block;
+    animation: scrollTop 15s linear infinite;
+}
+@keyframes scrollTop {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%); /* Move half the width of the duplicated content */
+    }
+}
+.skills-bottom {
+    color: white;
+    font-weight: 250;
+    font-style: light;
+    display: inline-block;
+    animation: scrollBottom 15s linear infinite;
+}
+@keyframes scrollBottom {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%); /* Move half the width of the duplicated content */
+    }
+}
+
+.main-skills-containers {
+    margin: clamp(5px, 5vw, 20px);
+    transition: transform 5s ease-in;
+    
+    /* border-radius: 25px;
+    box-shadow: inset 2px 2px 0 0 rgba(0, 0, 0, 0.4) */
+}
+.main-skills-containers:hover .nb-tools {
+    color: purple;
+
+}
+
+.main-md-img-container {
+    position: relative;
+    top: 0%;
+    left:0%;
+    /* border: 1px solid red; */
+    grid-column: 2;
+    grid-row: 2;
+    overflow: hidden;
+}
+.main-md-img-container2 {
+    position: relative;
+    top: 0%;
+    left:0%;
+    /* border: 1px solid red; */
+    grid-column: 1;
+    grid-row: 3;
+    overflow: hidden;
+}
+.main-containers, .main-skills-containers {
+    margin: clamp(10px, 1.5dvw, 40px);
+}
+.md-carousal {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    /* grid-template-columns: repeat(4, auto);  */
+    gap: clamp(1rem, 3vw, 6rem);
+    align-items: center;
+    overflow-x: auto; /* NB: makes images scrollable */ 
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    
+}
+
+.md-carousal .md-slide-containers {
+    animation: scrollImages 10s linear infinite;
+}
+
+.md-carousal .md-slide-containersB {
+    animation: scrollBackImages 10s linear infinite;
+}
+
+@keyframes scrollImages {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%); /* Move half the width of the duplicated content */
+    }
+}
+@keyframes scrollBackImages {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0%); /* Move half the width of the duplicated content */
+    }
+}
+
+.md-carousal::-webkit-scrollbar {
+    display: none; /* Remove scrollbar at the bottom */
+}
+.md-slide-containers {
+    perspective: 1000px;
+}
+.md-slides {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-bottom: clamp(0.25rem, 1rem, 2rem);
+    transition: transform 0.5s ease-in;
+    transforme-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.md-slidesB {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.5s ease-in;
+    transforme-style: preserve3d;
+}
+
+.md-slides:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    
+}
+
+.md-carousal:hover .md-slide-containers, .md-carousal:hover .md-slide-containersB { /* Pause animation and flip card on hover */
+    /* animation-play-state: paused; */
+}
+
+.md-imgs {
+    position: relative;
+    width: clamp(10rem, 25vw, 40rem);
+    height: clamp(5rem, 15vw, 25rem);
+    margin: 0;
+    border-radius: 25px;
+    -webkit-box-reflect: below 1rem 
+        linear-gradient(to top,
+        rgba(255,255,255,0.4) 0%,
+        rgba(255,255,255,0.2) 15%,
+        rgba(255,255,255,0) 25%,
+        rgba(255,255,255,0) 100%
+        );
+}
+
+.md-slide1::after, .md-slide2::after, .md-slide3::after, .md-slide4::after {
+    content: "";
+    background-color: transparent;
+    background: black;
+    filter: blur(10px);
+    height: clamp(5rem, 15vw, 25rem);
+    width: clamp(10rem, 25vw, 40rem);
+    position: absolute;
+    border-radius: 25px;
+    inset: 0;
+    z-index: -1;
+    align-self: center;
+}
+
+.main-md-text-container {
+    display: grid;
+    justify-content: center;
+    font-size: clamp(5px, 15vw, 30px);
+    grid-column: 2;
+    grid-row: 3;
+}
+.main-dev-text-container {
+    display: grid;
+    justify-content: center;
+    font-size: clamp(5px, 15vw, 30px);
+    grid-column: 1;
+    grid-row: 2;
+}
+.skill-title {
+    font-size: clamp(5px, 15vw, 40px);
+    white-space: no-wrap;
+    justify-self: center;
+    grid-row: 1;
+    margin: 0;
+    height: fit-content;
+    margin-top: clamp(10px, 5vh, 20px)
+}
+.work-skills {
+    height: fit-content;
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: repeat(6, auto);
+}
+.music-skill1 {
+    grid-row: 1;
+}
+.music-skill2 {
+    grid-row: 2;
+}
+.music-skill3 {
+    grid-row: 3;
+}
+.music-skill4 {
+    grid-row: 4;
+}
+.music-skill5 {
+    grid-row: 5;
+}
+.music-skill6 {
+    grid-row: 6;
+}
+.dev-skills {
+    height: fit-content;
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+}
+.dev-skill1 {
+    grid-row: 1;
+}
+.dev-skill2 {
+    grid-row: 2;
+}
+.dev-skill3 {
+    grid-row: 3;
+}
+.dev-skill4 {
+    grid-row: 4;
+}
+.nb-tools {
+    font-weight: 400;
+}
+
+/* *************************************************** MEDIA QUEIRES ************************************************* */
+
 /* ****************** 900px - 1024px ******************* */
 
 @media screen and (min-width: 900px) and (max-width: 1024px) {
@@ -393,343 +674,4 @@ left: 1%;
     .content {
         bottom: -4%;
     }
-}
-
-/* ********************** SECTION 2: SKILLS OVERVIEW ************************ */
-
-.section2-grid {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 7dvh 1fr 1fr 7dvh;
-    overflow: hidden;
-}
-
-.skills-top-banner {
-    display: flex;
-    width: 100%;
-    min-height: 7dvh;
-    white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-    background: black;
-    top: 0px;
-    left: 0px;
-    margin: 0px;
-    pad:0px;
-    grid-column: 1 / span 2;
-    grid-row: 1;
-}
-.skills-bottom-banner {
-    grid-column: 1 / span 2;
-    grid-row: 4;
-}
-/* .projects-grid {
-    display: grid;
-    grid-template-columns: 40vw 40vw;
-    grid-template-rows: 40vh 40vh;
-    width: 100%;
-    min-height: 93vh;
-    white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-    top: 0px;
-    left: 0px;
-    margin: 0px;
-    pad:0px;
-} */
-.skills-top {
-    color: white;
-    font-weight: 250;
-    font-style: light;
-    display: inline-block;
-    animation: scrollTop 15s linear infinite;
-}
-@keyframes scrollTop {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-50%); /* Move half the width of the duplicated content */
-    }
-}
-.skills-bottom {
-    color: white;
-    font-weight: 250;
-    font-style: light;
-    display: inline-block;
-    animation: scrollBottom 15s linear infinite;
-}
-@keyframes scrollBottom {
-    0% {
-        transform: translateX(-50%);
-    }
-    100% {
-        transform: translateX(0%); /* Move half the width of the duplicated content */
-    }
-}
-
-.main-skills-containers {
-    margin: clamp(5px, 5vw, 20px);
-    transition: transform 5s ease-in;
-    
-    /* border-radius: 25px;
-    box-shadow: inset 2px 2px 0 0 rgba(0, 0, 0, 0.4) */
-}
-.main-skills-containers:hover .nb-tools {
-    color: purple;
-
-}
-
-.main-md-img-container {
-    position: relative;
-    top: 0%;
-    left:0%;
-    /* border: 1px solid red; */
-    grid-column: 2;
-    grid-row: 2;
-    overflow: hidden;
-}
-.main-md-img-container2 {
-    position: relative;
-    top: 0%;
-    left:0%;
-    /* border: 1px solid red; */
-    grid-column: 1;
-    grid-row: 3;
-    overflow: hidden;
-}
-.main-containers, .main-skills-containers {
-    margin: clamp(10px, 1.5dvw, 40px);
-}
-.md-carousal {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    /* grid-template-columns: repeat(4, auto);  */
-    gap: clamp(1rem, 3vw, 6rem);
-    align-items: center;
-    overflow-x: auto; /* NB: makes images scrollable */ 
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    
-}
-
-.md-carousal .md-slide-containers, .md-carousal .md-slide-containersB {
-    animation: scrollImages 10s linear infinite;
-}
-
-.md-carousal .md-slide-containersB {
-    animation-direction: reverse;
-}
-
-@keyframes scrollImages {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-50%); /* Move half the width of the duplicated content */
-    }
-}
-
-.md-carousal::-webkit-scrollbar {
-    display: none; /* Remove scrollbar at the bottom */
-}
-.md-slide-containers {
-    perspective: 1000px;
-}
-.md-slides {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    margin-bottom: clamp(0.25rem, 1rem, 2rem);
-    transition: transform 0.5s ease-in;
-    transforme-style: preserve3d;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    animation: flipImages 8s linear infinite;
-}
-.md-slidesB {
-    position: absolute;
-    inset: 0;
-    transition: transform 0.5s ease-in;
-    transforme-style: preserve3d;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    animation: flipBackImages 8s linear infinite;
-}
-.md-slides:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-    
-}
-
-
-@keyframes flipImages {
-    0% {
-        transform: rotateY(0deg);
-    }
-    25% {
-        transform: rotateY(180deg);
-    }
-    25.1% {
-        transform: rotateY(180deg);
-    }
-
-    100% {
-        transform: rotateY(360deg);
-        
-    }
-}
-@keyframes flipBackImages {
-    0% {
-        transform: rotateY(180deg);
-        /* backface-visibility: visible;
-        -webkit-backface-visibility: visible; */
-    }
-    25% {
-        transform: rotateY(360deg);
-        /* backface-visibility: hidden;
-        -webkit-backface-visibility: hidden; */
-    }
-    25.1% {
-        transform: rotateY(360deg);
-        /* backface-visibility: hidden;
-        -webkit-backface-visibility: hidden; */
-    }
-
-    100% {
-        transform: rotateY(180deg);
-        /* backface-visibility: visible;
-        -webkit-backface-visibility: visible; */
-        
-    }
-}
-/* .slide1 {
-    animation-delay: 0s;
-}
-.slide2 {
-    animation-delay: 2s;
-}
-.slide3 {
-    animation-delay: 4s;
-}
-.slide4 {
-    animation-delay: 6s;
-}
-.slide5 {
-    animation-delay: 1s;
-}
-.slide6 {
-    animation-delay: 3s;
-}
-.slide7 {
-    animation-delay: 5s;
-}
-.slide8 {
-    animation-delay: 7s;
-} */
-.md-carousal:hover .md-slide-containers, .md-carousal:hover .md-slide-containersB { /* Pause animation and flip card on hover */
-    /* animation-play-state: paused; */
-}
-
-.md-imgs {s
-    position: relative;
-    width: clamp(10rem, 25vw, 40rem);
-    height: clamp(5rem, 15vw, 25rem);
-    margin: 0;
-    border-radius: 25px;
-    -webkit-box-reflect: below 1rem 
-        linear-gradient(to top,
-        rgba(255,255,255,0.4) 0%,
-        rgba(255,255,255,0.2) 15%,
-        rgba(255,255,255,0) 25%,
-        rgba(255,255,255,0) 100%
-        );
-}
-
-.md-slide1::after, .md-slide2::after, .md-slide3::after, .md-slide4::after {
-    content: "";
-    background-color: transparent;
-    background: black;
-    filter: blur(10px);
-    height: clamp(5rem, 15vw, 25rem);
-    width: clamp(10rem, 25vw, 40rem);
-    position: absolute;
-    border-radius: 25px;
-    inset: 0;
-    z-index: -1;
-    align-self: center;
-}
-
-.main-md-text-container {
-    display: grid;
-    justify-content: center;
-    font-size: clamp(5px, 15vw, 30px);
-    grid-column: 2;
-    grid-row: 3;
-}
-.main-dev-text-container {
-    display: grid;
-    justify-content: center;
-    font-size: clamp(5px, 15vw, 30px);
-    grid-column: 1;
-    grid-row: 2;
-}
-.skill-title {
-    font-size: clamp(5px, 15vw, 40px);
-    white-space: no-wrap;
-    justify-self: center;
-    grid-row: 1;
-    margin: 0;
-    height: fit-content;
-    margin-top: clamp(10px, 5vh, 20px)
-}
-.work-skills {
-    height: fit-content;
-    grid-row: 2;
-    display: grid;
-    grid-template-rows: repeat(6, auto);
-}
-.music-skill1 {
-    grid-row: 1;
-}
-.music-skill2 {
-    grid-row: 2;
-}
-.music-skill3 {
-    grid-row: 3;
-}
-.music-skill4 {
-    grid-row: 4;
-}
-.music-skill5 {
-    grid-row: 5;
-}
-.music-skill6 {
-    grid-row: 6;
-}
-.dev-skills {
-    height: fit-content;
-    grid-row: 2;
-    display: grid;
-    grid-template-rows: repeat(4, auto);
-}
-.dev-skill1 {
-    grid-row: 1;
-}
-.dev-skill2 {
-    grid-row: 2;
-}
-.dev-skill3 {
-    grid-row: 3;
-}
-.dev-skill4 {
-    grid-row: 4;
-}
-.nb-tools {
-    font-weight: 400;
 }
