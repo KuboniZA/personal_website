@@ -74,7 +74,7 @@ left: 1%;
     mask-image: url(./assets/TransitionVector-ezgif.com-gif-to-webp-converter.webp);
     mask-size: cover;
     transform: rotate(180deg);
-    z-index: 5;
+    z-index: 500;
     position: absolute;
 } */
 .home-container {
@@ -86,39 +86,55 @@ left: 1%;
     width: 100dvw;
     height: 100dvh;
 }
-.landing-page-container .scroll-container {
+.scroll-container {
+    display: grid;
+    position: fixed;
+    height: fit-content;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    color: blue;
+    opacity: 0.65;
+}
+.scroll-container .scroll-text-container {
     position: relative;
-    width: fit-content;
     height: 1rem;
     font-size: 0.75rem;
-    padding: 20px;
-    background-color: red;
-    color: black;
-    background: linear-gradient(to right, lightgreen, green);
-    display: flex;
+    padding: 10px;
+    /* color: black; */
+    background: linear-gradient(white);
     align-items: center;
     border-radius: 1000px;
-    bottom: 8dvh;
-    justify-self: center;
     white-space: nowrap;
+    display: flex;
+    grid-row: 2;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
-.scroll-container::after, .scroll-container::before {
+.hidden-arrows {
+    opacity: 0;
+    pointer-events: none;
+    animation: none !important;
+    transition: opacity 0.75s ease;
+}
+/* .scroll-text-container::after, .scroll-text-container::before, .up-arrow::after {
     content: "";
     height: 100%;
     width: 100%;
     position: absolute;
     inset: 0;
     background-color: transparent;
-    background: conic-gradient(white, lightgrey, grey, darkgrey, white);
+    background: conic-gradient(red, blue, green, red);
     z-index: -1;
     border-radius: inherit;
     transform: scaleX(1.05) scaleY(1.1);
 }
-.scroll-container::before {
-    filter: blur(1rem);
+.scroll-text-container::before {
+    filter: blur(0.1rem);
     animation: 3.5s glow ease-in-out infinite;
     
-}
+} */
 @keyframes glow {
     0% {
         opacity: 1;
@@ -131,10 +147,25 @@ left: 1%;
     }
 }
 
-.landing-page-container .scroll-container .down-arrow {
-    margin-left: 10px;
+.scroll-container .down-arrow, .scroll-container .up-arrow {
+    height: 1.5rem;
+    width: 1.5rem;
     font-size: 1rem;
-    animation: 3.5s glow ease-in-out infinite;
+    position: relative;
+    border-radius: 50%;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    padding: 0.25rem;
+    background: linear-gradient(to right, lightgrey, grey);
+    /* animation: 3.5s glow ease-in-out infinite; */
+}
+.scroll-container .down-arrow {
+    grid-row: 3;
+}
+
+.scroll-container .up-arrow {
+    grid-row: 1;
 }
 .scroll-text {
     animation: 3.5s glow ease-in-out infinite;
