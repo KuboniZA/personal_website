@@ -261,7 +261,7 @@ left: 1%;
 }
 .home-container .main-me {
     position: relative;
-    top: 20dvh;
+    top: 10dvh !important;
     justify-self: center;
     z-index: -5;
 }
@@ -269,7 +269,7 @@ left: 1%;
     position: relative;
     max-height: 80vh;
     max-width: 750px;
-    bottom: 0px;
+    /* bottom: 10%; */
 }
 
 .content {
