@@ -40,6 +40,7 @@ header {
 h1 {
 position: relative;
 left: 1%;
+display: inline-block
 }
 
 /* ****************************** Landing page CSS ******************************* */
@@ -48,6 +49,8 @@ left: 1%;
     position: relative;
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    height: 100dvh;
+    width: 100dvw;
 }
 
 .landing-grid {
@@ -204,7 +207,7 @@ left: 1%;
     height: fit-content;
 }
 .welcome-spans {
-    animation: highlightWelcome 3.5s steps(6)infinite;
+    animation: highlightWelcome 4s steps(7)infinite;
 }
 .welcome1 {
     animation-delay: 0.5s;
@@ -223,6 +226,9 @@ left: 1%;
 }
 .welcome6 {
     animation-delay: 3s;
+}
+.welcome7 {
+    animation-delay: 3.5s;
 }
 @keyframes highlightWelcome {
     0% {
@@ -261,7 +267,7 @@ left: 1%;
 }
 .home-container .main-me {
     position: relative;
-    top: 10dvh !important;
+    top: 10dvh;
     justify-self: center;
     z-index: -5;
 }
