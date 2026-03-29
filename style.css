@@ -63,7 +63,7 @@ display: inline-block
     margin: 0px;
     padding:0px;
 }
-/* .masked-landing {
+.masked-landing {
     height: 100dvh;
     width: 100%;
     grid-row: 1 / 2;
@@ -79,7 +79,7 @@ display: inline-block
     transform: rotate(180deg);
     z-index: 500;
     position: absolute;
-} */
+}
 .home-container {
     text-align: center;
     overflow: hidden;
@@ -815,7 +815,12 @@ display: inline-block
     display: grid;
     align-items: center;
     padding: 2rem;
-    
+}
+.project-containers h2 {
+    font-size: 2rem;
+}
+.project-containers p {
+    font-size: 1.5rem;
 }
 iframe {
     padding: 0;
@@ -982,6 +987,9 @@ iframe {
     .about-container4 {
         grid-row: 4;
     }
+    .my-work-top {
+        align-items: center;
+    }
 }
 
 /* ****************** 700px - 899px ******************* */
@@ -993,6 +1001,17 @@ iframe {
             rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) *1deg))
             translateZ(550px);
     }
+    .welcome-container {
+        width: 94%;
+        left: 3%;
+    }
+    .main-h1 {
+        font-size: 2.5rem;
+    }
+    .home-container .main-me { 
+        top: 16dvh;
+        
+    }
     .home-pics img {
         transform: scale(0.4);
         border: none;
@@ -1003,9 +1022,9 @@ iframe {
         box-shadow: none;
         opacity: 0.85;
     }
-    .content {
-        bottom: 0%;
-    }
+    /* .content {
+        bottom: -2%;
+    } */
     .content h1 {
         font-size: 3.5rem;
     }
@@ -1110,9 +1129,18 @@ iframe {
         box-shadow: none;
         opacity: 0.85;
     }
+    .home-container .main-me {
+    top: 14dvh;
+}
+    .welcome-container {
+        width: 94%;
+        left: 3%;
+    }
+    .main-h1 {
+        font-size: 1.75rem;
+    }
     .home-pic-container {
-    
-    top: -10%;
+    top: -14%;
     left: 10%;
     }
     .skills-top, .skills-bottom, 
@@ -1248,6 +1276,12 @@ iframe {
         width: 90dvw !important;
         justify-content: center;
     }
+    .project-containers h2 {
+        font-size: 1.25rem;
+    }
+    .project-containers p {
+        font-size: 1rem;
+    }
     .project1-container {
         grid-column: 1;
         grid-row: 1;
@@ -1323,7 +1357,7 @@ iframe {
         opacity: 0.85;
     }
     .home-container .main-me {
-        top: 15dvh;
+        top: 17dvh;
     }
     .home-container .main-me img {
         transform: scale(0.9)
@@ -1367,6 +1401,8 @@ iframe {
     }
     .skills-top-banner {
         grid-row: 1;
+        font-size: 0.75rem;
+        align-content: center;
     }
     .skills-bottom-banner {
         grid-row: 6;
@@ -1442,17 +1478,25 @@ iframe {
     }
 
     .my-work-top {
+        align-items: center !important;
         grid-row: 1;
+        font-size: 0.75rem;
     }
 
     .my-work-bottom {
-            grid-column: 1;
-            grid-row: 3;
+        grid-column: 1;
+        grid-row: 3;
     }
     .project-containers {
         width: 90dvw !important;
         justify-content: center;
     }
+    .project-containers h2 {
+        font-size: 1rem;
+        }
+        .project-containers p {
+            font-size: 0.75rem;
+        }
     .project1-container {
         grid-column: 1;
         grid-row: 1;
@@ -1533,7 +1577,7 @@ iframe {
     }
       .home-container .main-me {
         transform: scale(0.9);
-        top: 20dvh !important;
+        top: 22dvh !important;
     }
       .landing-page-container .scroll-container {
         bottom: 7dvh;
@@ -1640,7 +1684,7 @@ iframe {
         justify-content: center;
     }
     iframe {
-        transform: scale(0.65);
+        transform: scale(0.5);
     }
     .iframe-container::after, .iframe-container::before, 
     .iframe-containerB::after, .iframe-containerB::before {
@@ -1648,7 +1692,7 @@ iframe {
         width: 100%;
         height: 100%;
         inset: 0;
-        transform: scale(0.67) translateY(-1%);
+        transform: scale(0.52) translateY(-1%);
     }
     .projects-grid {
         overflow-y: auto;
@@ -1659,6 +1703,8 @@ iframe {
 
     .my-work-top {
         grid-row: 1;
+        font-size: 0.5rem !important;
+        align-items: center;
     }
 
     .my-work-bottom {
@@ -1668,6 +1714,12 @@ iframe {
     .project-containers {
         width: 90dvw !important;
         justify-content: center;
+    }
+    .project-containers h2 {
+    font-size: 1rem;
+    }
+    .project-containers p {
+        font-size: 0.75rem;
     }
     .project1-container {
         grid-column: 1;
@@ -1719,8 +1771,5 @@ iframe {
         .project6-text-container {
         grid-column: 1;
         grid-row: 12;
-    }
-    .coming-soon {
-        justify-self: center;
     }
 }
