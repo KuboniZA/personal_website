@@ -63,7 +63,7 @@ display: inline-block
     margin: 0px;
     padding:0px;
 }
-.masked-landing {
+/* .masked-landing {
     height: 100dvh;
     width: 100%;
     grid-row: 1 / 2;
@@ -79,7 +79,7 @@ display: inline-block
     transform: rotate(180deg);
     z-index: 500;
     position: absolute;
-}
+} */
 .home-container {
     text-align: center;
     overflow: hidden;
