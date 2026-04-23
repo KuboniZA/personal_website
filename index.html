@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to the digital home of Sipumzo Trueman Lucwaba, a talented musician and web developer. Explore his portfolio, projects, and contact information.">
     <title>Kuboni Web-Designs</title>
-    <link rel="preload" href="./style.css?v=1.0.0" as="style"> <!-- Preload the CSS file for faster loading -->
-    <link rel="preload" href="./main.js?v=1.0.0" as="script"> <!-- Preload the JavaScript file for faster loading -->
+    <link rel="preload" href="./style.css?v=1.0.1" as="style"> <!-- Preload the CSS file for faster loading -->
     <link rel="stylesheet" href="./style.css?v=1.0.1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +20,7 @@
 <body>
     <div class="site-container">
 
-        <section class="landing-page-container">
+        <section class="landing-page-container is-active">
             <div class="landing-grid">
             <div class="home-container">
                 <div class="welcome-container">
@@ -37,6 +36,7 @@
                 <!-- Slider -->
                 <div class="main-me">
                     <img src="./assets/main-pic.webp" alt="Sipumzo"
+                    loading="eager" fetchpriority="high" decoding="async"
                     srcset="
                     ./assets/main-pic.webp 1667w,
                     ./assets/main-pic_1200.webp 1200w,
@@ -46,7 +46,7 @@
                 <div class="home-pic-container" style="--quantity: 8">
                     <!-- Items -->
                     <div class="home-pics" style="--position:1">
-                        <img src="./assets/Naledis_2018.webp" 
+                        <img src="./assets/Naledis_2018.webp" loading="lazy" decoding="async"
                         srcset="
                         ./assets/Naledis_2018.webp 1080w,
                         ./assets/Naledis_2018_600.webp 600w" 
@@ -54,7 +54,7 @@
                         sizes="100vw">
                     </div>
                     <div class="home-pics" style="--position:2">
-                        <img src="./assets/langharm_cast.webp" alt="Langarm cast" class="pic2"
+                        <img src="./assets/langharm_cast.webp" alt="Langarm cast" class="pic2" loading="lazy" decoding="async"
                         srcset="
                         ./assets/langharm_cast.webp 1875w,
                         ./assets/langharm_cast.webp 1200w,
@@ -62,7 +62,7 @@
                         sizes="100vw">
                     </div>
                     <div class="home-pics" style="--position:3">
-                        <img src="./assets/me-mama.webp" alt="Mama and me" class="pic3"
+                        <img src="./assets/me-mama.webp" alt="Mama and me" class="pic3" loading="lazy" decoding="async"
                         srcset="
                         ./assets/me-mama.webp 5760w,
                         ./assets/me-mama_2400.webp 2400w,
@@ -71,7 +71,7 @@
                         sizes="100vw">
                     </div>
                     <div class="home-pics" style="--position:4">
-                        <img src="./assets/sibling3.webp" alt="My siblings" class="pic4"
+                        <img src="./assets/sibling3.webp" alt="My siblings" class="pic4" loading="lazy" decoding="async"
                         srcset="
                         ./assets/sibling3.webp 5760w,
                         ./assets/sibling3_2400.webp 2400w,
@@ -80,7 +80,7 @@
                         sizes="100vw">
                     </div>
                     <div class="home-pics" style="--position:5">
-                        <img src="./assets/bass_with_shawn.webp" alt="At a gig" class="pic5"
+                        <img src="./assets/bass_with_shawn.webp" alt="At a gig" class="pic5" loading="lazy" decoding="async"
                         srcset="
                         ./assets/bass_with_shawn.webp 2048w,
                         ./assets/bass_with_shawn_1200.webp 1200w,
@@ -88,7 +88,7 @@
                         sizes="100vw">
                     </div>
                     <div class="home-pics" style="--position:6">
-                        <img src="./assets/charl.webp" alt="Charl-Johan Lingenfelder and I" class="pic6"
+                        <img src="./assets/charl.webp" alt="Charl-Johan Lingenfelder and I" class="pic6" loading="lazy" decoding="async"
                         srcset="
                         ./assets/charl.webp 1875w,
                         ./assets/charl_1200.webp 1200w,
@@ -96,14 +96,14 @@
                         sizes="100vw">
                     </div>
                     <div class="home-pics" style="--position:7">
-                        <img src="./assets/best_man_speech.webp" alt="Wedding speech" class="pic7"
+                        <img src="./assets/best_man_speech.webp" alt="Wedding speech" class="pic7" loading="lazy" decoding="async"
                         srcset="
                         ./assets/best_man_speech.webp 960w,
                         ./assets/best_man_speech_600.webp 600w" 
                         sizes="100vw">
                     </div>
                     <div class="home-pics" style="--position:8">
-                        <img src="./assets/dad3.webp" alt="My dad and I" class="pic8"
+                        <img src="./assets/dad3.webp" alt="My dad and I" class="pic8" loading="lazy" decoding="async"
                         srcset="
                         ./assets/dad3.webp 5760w,
                         ./assets/dad3_2400.webp 2400w,
@@ -145,7 +145,7 @@
             <button><a href="./public/my_work.html">My Work</a></button>
         </header> -->
         <!-------------------------------- SECTION 2 --------------------------------------->
-        <section class="section2-grid">
+        <section class="section2-grid deferred-section">
 
             <!-- THE BELOW DUPLICATES MAKE THE MD SKILLS LOOP LAST 10 MINUTES WITHOUT THE RESTART GLITCH -->
             <div class="skills-top-banner">
@@ -3020,7 +3020,7 @@
         </section>
 
         <!-------------------------------- SECTION 3 --------------------------------------->
-        <section class="section3-grid">
+        <section class="section3-grid deferred-section">
 
                 <!-- THE BELOW DUPLICATES MAKE THE MD SKILLS LOOP LAST 10 MINUTES WITHOUT THE RESTART GLITCH -->
             <div class="skills-top-banner top-banner2">
@@ -3677,7 +3677,7 @@
         </section>
 
         <!-------------------------------- SECTION 4 --------------------------------------->
-        <section class="my-work-grid">
+        <section class="my-work-grid deferred-section">
         <!-- THE BELOW DUPLICATES MAKE THE MD SKILLS LOOP LAST 10 MINUTES WITHOUT THE RESTART GLITCH -->
             <div class="my-work-top">
 
@@ -4401,7 +4401,7 @@
         </section>
     
     </div>
-    <script src="main.js?v=1.0.0"></script> <!-- Cache busting for main.js -->
+    <script src="main.js?v=1.0.1" defer></script> <!-- Cache busting for main.js -->
 </body>
 
 </html>

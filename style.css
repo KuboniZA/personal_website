@@ -14,6 +14,16 @@ body {
 .site-container::-webkit-scrollbar {
     display: none;
 }
+.deferred-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 100dvh;
+}
+
+.about-containers,
+.project-containers {
+    content-visibility: auto;
+    contain-intrinsic-size: 40dvh;
+}
 /* 
 .container-parent {
     background-color: green;
@@ -886,6 +896,60 @@ iframe {
     border-radius: 25px;
     top: -0.5%;
     animation: borderSpin 5s linear infinite;
+}
+
+.mask-inner::after,
+.home-pic-container,
+.skills-top,
+.skills-bottom,
+.md-carousal .md-slide-containers,
+.md-carousal .md-slide-containersB,
+.work-top,
+.work-bottom,
+.iframe-container::after,
+.iframe-container::before,
+.iframe-containerB::after,
+.iframe-containerB::before {
+    animation-play-state: paused;
+}
+
+.landing-page-container.is-active .mask-inner::after,
+.landing-page-container.is-active .home-pic-container,
+.section2-grid.is-active .skills-top,
+.section2-grid.is-active .skills-bottom,
+.section2-grid.is-active .md-carousal .md-slide-containers,
+.section2-grid.is-active .md-carousal .md-slide-containersB,
+.section3-grid.is-active .skills-top,
+.section3-grid.is-active .skills-bottom,
+.my-work-grid.is-active .work-top,
+.my-work-grid.is-active .work-bottom,
+.my-work-grid.is-active .iframe-container::after,
+.my-work-grid.is-active .iframe-container::before,
+.my-work-grid.is-active .iframe-containerB::after,
+.my-work-grid.is-active .iframe-containerB::before {
+    animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mask-inner::after,
+    .home-pic-container,
+    .welcome-spans,
+    .scroll-text,
+    .skills-top,
+    .skills-bottom,
+    .nb-tools,
+    .md-carousal .md-slide-containers,
+    .md-carousal .md-slide-containersB,
+    .work-top,
+    .work-bottom,
+    .iframe-container::after,
+    .iframe-container::before,
+    .iframe-containerB::after,
+    .iframe-containerB::before,
+    .name {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 .iframe-container::after, .iframe-container::before {
     background: conic-gradient(from var(--angle), transparent 40%, blue, red);
