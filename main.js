@@ -148,6 +148,10 @@ function buildCarousels() {
     document.querySelectorAll(".generated-carousel").forEach((carousel) => {
         const key = carousel.dataset.carousel;
         const slides = CAROUSEL_DATA[key];
+        const loopGroups = Math.max(
+            Number.parseInt(carousel.dataset.loopGroups || "2", 10),
+            2
+        );
 
         if (!slides) {
             return;
@@ -158,12 +162,17 @@ function buildCarousels() {
             : "carousel-track-forward";
         const track = document.createElement("div");
         track.className = `carousel-track ${directionClass}`;
+        track.style.setProperty("--loop-shift", `${((loopGroups - 1) / loopGroups) * 100}%`);
 
-        track.append(createCarouselGroup(slides));
+        for (let groupIndex = 0; groupIndex < loopGroups; groupIndex += 1) {
+            const group = createCarouselGroup(slides);
 
-        const duplicateGroup = createCarouselGroup(slides);
-        duplicateGroup.setAttribute("aria-hidden", "true");
-        track.append(duplicateGroup);
+            if (groupIndex > 0) {
+                group.setAttribute("aria-hidden", "true");
+            }
+
+            track.append(group);
+        }
 
         carousel.replaceChildren(track);
     });
@@ -175,11 +184,16 @@ function buildMarquees() {
         const trackClass = banner.dataset.trackClass || "";
         const itemClass = banner.dataset.itemClass || "";
         const itemCount = Number.parseInt(banner.dataset.itemCount || "3", 10);
+        const loopGroups = Math.max(
+            Number.parseInt(banner.dataset.loopGroups || "2", 10),
+            2
+        );
         const text = banner.dataset.marqueeText || "";
 
         track.className = `marquee-track ${trackClass}`.trim();
+        track.style.setProperty("--loop-shift", `${((loopGroups - 1) / loopGroups) * 100}%`);
 
-        for (let groupIndex = 0; groupIndex < 2; groupIndex += 1) {
+        for (let groupIndex = 0; groupIndex < loopGroups; groupIndex += 1) {
             const group = document.createElement("div");
             group.className = "marquee-group";
 

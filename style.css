@@ -425,7 +425,7 @@ display: inline-block
 }
 
 .marquee-track-top {
-    animation: scrollWorkTop 90s linear infinite;
+    animation: scrollWorkTop 600s linear infinite;
 }
 
 @keyframes scrollWorkTop {
@@ -433,17 +433,17 @@ display: inline-block
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
 }
 
 .marquee-track-bottom {
-    animation: scrollBottom 90s linear infinite;
+    animation: scrollBottom 600s linear infinite;
 }
 
 @keyframes scrollBottom {
     0% {
-        transform: translateX(-50%);
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
     100% {
         transform: translateX(0);
@@ -576,11 +576,11 @@ display: inline-block
 }
 
 .carousel-track-forward {
-    animation: scrollImages 45s linear infinite;
+    animation: scrollImages 540s linear infinite;
 }
 
 .carousel-track-backward {
-    animation: scrollBackImages 45s linear infinite;
+    animation: scrollBackImages 540s linear infinite;
 }
 
 @keyframes scrollImages {
@@ -588,12 +588,12 @@ display: inline-block
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
 }
 @keyframes scrollBackImages {
     0% {
-        transform: translateX(-50%);
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
     100% {
         transform: translateX(0);
@@ -850,7 +850,7 @@ display: inline-block
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
 }
 .work-bottom {
@@ -861,7 +861,7 @@ display: inline-block
 }
 @keyframes scrollTopBottom {
     0% {
-        transform: translateX(-50%);
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
     100% {
         transform: translateX(0);
@@ -869,11 +869,11 @@ display: inline-block
 }
 
 .marquee-track-work-top {
-    animation: scrollWorkTop2 90s linear infinite;
+    animation: scrollWorkTop2 600s linear infinite;
 }
 
 .marquee-track-work-bottom {
-    animation: scrollTopBottom 90s linear infinite;
+    animation: scrollTopBottom 600s linear infinite;
 }
 
 .project1-container {
