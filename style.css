@@ -14,6 +14,16 @@ body {
 .site-container::-webkit-scrollbar {
     display: none;
 }
+.deferred-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 100dvh;
+}
+
+.about-containers,
+.project-containers {
+    content-visibility: auto;
+    contain-intrinsic-size: 40dvh;
+}
 /* 
 .container-parent {
     background-color: green;
@@ -402,26 +412,41 @@ display: inline-block
     display: inline-block;
     align-content: center;
 }
-.skills-top {
+.marquee-track {
+    display: flex;
+    width: max-content;
+    flex-shrink: 0;
+}
+
+.marquee-group {
+    display: flex;
+    width: max-content;
+    flex-shrink: 0;
+}
+
+.marquee-track-top {
     animation: scrollWorkTop 600s linear infinite;
 }
+
 @keyframes scrollWorkTop {
     0% {
-        transform: translateX(0%);
+        transform: translateX(0);
     }
     100% {
-        transform: translateX(-2000%); /* Move half the width of the duplicated content */
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
 }
-.skills-bottom {
+
+.marquee-track-bottom {
     animation: scrollBottom 600s linear infinite;
 }
+
 @keyframes scrollBottom {
     0% {
-        transform: translateX(-2000%);
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
     100% {
-        transform: translateX(0%); /* Move half the width of the duplicated content */
+        transform: translateX(0);
     }
 }
 
@@ -527,39 +552,51 @@ display: inline-block
     width: 100%;
     display: flex;
     /* grid-template-columns: repeat(4, auto);  */
-    gap: clamp(1rem, 3vw, 6rem);
     align-items: center;
-    overflow-x: auto; /* NB: makes images scrollable */ 
+    overflow: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     
 }
 
-.md-carousal .md-slide-containers { /* NOTE THAT THIS REFERS TO THE SLIDE CONTAINERS
-                                        AND NOT THE SLIDES THEMSELVES */
-    animation: scrollImages 600s linear infinite;
+.carousel-track {
+    display: flex;
+    width: max-content;
+    flex-shrink: 0;
+    gap: clamp(1rem, 3vw, 6rem);
+    align-items: flex-start;
 }
 
-.md-carousal .md-slide-containersB { /* NOTE THAT THIS REFERS TO THE SLIDE CONTAINERS
-                                        AND NOT THE SLIDES THEMSELVES */
-    animation: scrollBackImages 600s linear infinite;
-    animation-delay: 0.5s;
+.carousel-group {
+    display: flex;
+    gap: clamp(1rem, 3vw, 6rem);
+    width: max-content;
+    flex-shrink: 0;
+    align-items: flex-start;
+}
+
+.carousel-track-forward {
+    animation: scrollImages 540s linear infinite;
+}
+
+.carousel-track-backward {
+    animation: scrollBackImages 540s linear infinite;
 }
 
 @keyframes scrollImages {
     0% {
-        transform: translateX(0%);
+        transform: translateX(0);
     }
     100% {
-        transform: translateX(-8000%);
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
 }
 @keyframes scrollBackImages {
     0% {
-        transform: translateX(-8000%);
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(0);
     }
 }
 
@@ -568,6 +605,16 @@ display: inline-block
 }
 .md-slide-containers {
     perspective: 1000px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start;
+}
+
+.md-slide-containersB {
+    perspective: 1000px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start;
 }
 .md-slides, .md-slides2 {
     width: fit-content;
@@ -797,14 +844,13 @@ display: inline-block
     font-weight: 250;
     font-style: light;
     display: inline-block;
-    animation: scrollWorkTop2 600s linear infinite;
 }
 @keyframes scrollWorkTop2 {
     0% {
-        transform: translateX(0%);
+        transform: translateX(0);
     }
     100% {
-        transform: translateX(-2000%); /* Move half the width of the duplicated content */
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
 }
 .work-bottom {
@@ -812,15 +858,22 @@ display: inline-block
     font-weight: 250;
     font-style: light;
     display: inline-block;
-    animation: scrollTopBottom 600s linear infinite;
 }
 @keyframes scrollTopBottom {
     0% {
-        transform: translateX(-2000%);
+        transform: translateX(calc(-1 * var(--loop-shift, 50%)));
     }
     100% {
-        transform: translateX(0%); /* Move half the width of the duplicated content */
+        transform: translateX(0);
     }
+}
+
+.marquee-track-work-top {
+    animation: scrollWorkTop2 600s linear infinite;
+}
+
+.marquee-track-work-bottom {
+    animation: scrollTopBottom 600s linear infinite;
 }
 
 .project1-container {
@@ -886,6 +939,48 @@ iframe {
     border-radius: 25px;
     top: -0.5%;
     animation: borderSpin 5s linear infinite;
+}
+
+.mask-inner::after,
+.home-pic-container,
+.marquee-track,
+.carousel-track,
+.iframe-container::after,
+.iframe-container::before,
+.iframe-containerB::after,
+.iframe-containerB::before {
+    animation-play-state: paused;
+}
+
+.landing-page-container.is-active .mask-inner::after,
+.landing-page-container.is-active .home-pic-container,
+.section2-grid.is-active .marquee-track,
+.section2-grid.is-active .carousel-track,
+.section3-grid.is-active .marquee-track,
+.my-work-grid.is-active .marquee-track,
+.my-work-grid.is-active .iframe-container::after,
+.my-work-grid.is-active .iframe-container::before,
+.my-work-grid.is-active .iframe-containerB::after,
+.my-work-grid.is-active .iframe-containerB::before {
+    animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mask-inner::after,
+    .home-pic-container,
+    .welcome-spans,
+    .scroll-text,
+    .marquee-track,
+    .nb-tools,
+    .carousel-track,
+    .iframe-container::after,
+    .iframe-container::before,
+    .iframe-containerB::after,
+    .iframe-containerB::before,
+    .name {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 .iframe-container::after, .iframe-container::before {
     background: conic-gradient(from var(--angle), transparent 40%, blue, red);
