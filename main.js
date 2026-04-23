@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 entries.forEach((entry) => {
                     if (entry.intersectionRatio >= 0.99) {
                         entry.target.style.transform = "rotateY(180deg)";
-                    } else {
+                    } else if (!entry.isIntersecting) {
                         entry.target.style.transform = "";
                     }
                 });

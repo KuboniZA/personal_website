@@ -563,7 +563,8 @@ display: inline-block
     display: flex;
     width: max-content;
     flex-shrink: 0;
-    align-items: center;
+    gap: clamp(1rem, 3vw, 6rem);
+    align-items: flex-start;
 }
 
 .carousel-group {
@@ -571,7 +572,7 @@ display: inline-block
     gap: clamp(1rem, 3vw, 6rem);
     width: max-content;
     flex-shrink: 0;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .carousel-track-forward {
@@ -605,11 +606,15 @@ display: inline-block
 .md-slide-containers {
     perspective: 1000px;
     flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start;
 }
 
 .md-slide-containersB {
     perspective: 1000px;
     flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start;
 }
 .md-slides, .md-slides2 {
     width: fit-content;
